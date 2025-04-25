@@ -28,8 +28,15 @@ def mostrar_vuelos_disponibles(vuelos):
     print("Vuelos disponibles:")
     for vuelo in vuelos:
         print(f"- Vuelo: {vuelo.numero_vuelo}, {vuelo.origen} - {vuelo.destino}, Fecha: {vuelo.fecha}, Salida: {vuelo.salida}, Llegada: {vuelo.llegada}, Precio: {vuelo.precio:.2f} €")
-def reservar_vuelo(lista, numero_vuelo, pasajero, cantidad):
-    
+
+def solicitar_entero(mensaje):
+    while True:
+        try:
+            return int(input(mensaje))
+        except ValueError:
+            print("Ingresa un número válido.")
+
+def reservar_vuelo(lista, numero_vuelo, pasajero, cantidad):  
     for v in lista:
         if v.numero_vuelo == numero_vuelo:
             if cantidad <= 0:
