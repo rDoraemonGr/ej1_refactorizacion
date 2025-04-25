@@ -27,8 +27,7 @@ class Informacion:
 def mostrar_vuelos_disponibles(vuelos):
     print("Vuelos disponibles:")
     for vuelo in vuelos:
-        print(f"Número de vuelo: {vuelo.numero_vuelo}, Origen: {vuelo.origen}, Destino: {vuelo.destino}, Fecha: {vuelo.fecha}, Hora de salida: {vuelo.salida}, Hora de llegada: {vuelo.llegada}, Precio: {vuelo.precio}")
-
+        print(f"- Vuelo: {vuelo.numero_vuelo}, {vuelo.origen} - {vuelo.destino}, Fecha: {vuelo.fecha}, Salida: {vuelo.salida}, Llegada: {vuelo.llegada}, Precio: {vuelo.precio:.2f} €")
 def reservar_vuelo(lista, numero_vuelo, pasajero, cantidad):
     
     for v in lista:
