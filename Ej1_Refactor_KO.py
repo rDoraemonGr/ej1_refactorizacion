@@ -36,21 +36,21 @@ def solicitar_entero(mensaje):
         except ValueError:
             print("Ingresa un número válido.")
 
-def reservar_vuelo(lista, numero_vuelo, pasajero, cantidad):  
-    for v in lista:
-        if v.numero_vuelo == numero_vuelo:
+def reservar_vuelo(vuelos, numero_vuelo, pasajero, cantidad):
+    for vuelo in vuelos:
+        if vuelo.numero_vuelo == numero_vuelo:
             if cantidad <= 0:
                 print("La cantidad de asientos debe ser mayor que cero.")
                 return
-            elif cantidad > 10:
-                print("Lo sentimos, no se pueden reservar más de 10 asientos por reserva.")
+            if cantidad > 10:
+                print("No se pueden reservar más de 10 asientos.")
                 return
-            elif cantidad > 0 and cantidad <= 10:
-                reserva = Informacion(v, pasajero, cantidad)
-                print(f"¡Reserva exitosa para el vuelo {v.numero_vuelo}!")
-                print(f"Nombre del pasajero: {pasajero.nombre} {pasajero.apellido}, Asientos reservados: {cantidad}")
-                return
-    print("No se encontró ningún vuelo con el número especificado.")
+            reserva = Informacion(vuelo, pasajero, cantidad)
+            print(f"\n¡Reserva confirmada para el vuelo {vuelo.numero_vuelo}!")
+            print(f"Pasajero: {pasajero.nombre} {pasajero.apellido}")
+            print(f"Asientos reservados: {cantidad}")
+            return
+    print("No se encontró ningún vuelo con ese número.")
 
 
 def main():
